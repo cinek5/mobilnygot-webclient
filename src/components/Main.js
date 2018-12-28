@@ -2,21 +2,29 @@ require('normalize.css/normalize.css');
 require('styles/App.css');
 
 import React from 'react';
-
-let yeomanImage = require('../images/yeoman.png');
-
+import Navbar from './Navbar'
+import SearchBar from './SearchBar';
+import AddNewTrasaButton from './AddNewTrasaButton';
+import TrasyContainer from './TrasyContainer';
 class AppComponent extends React.Component {
   render() {
     return (
-      <div className="index">
-        <img src={yeomanImage} alt="Yeoman Generator" />
-        <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
+      <div className="main">
+        <Navbar/>
+        <div className="row">
+          <div className="col s6">
+            <TrasyContainer/>
+          </div>
+          <div className="col s1"></div>
+          <div className="col s5">
+            <AddNewTrasaButton/>
+          </div>
+
+
+        </div>
       </div>
     );
   }
 }
-
-AppComponent.defaultProps = {
-};
 
 export default AppComponent;

@@ -3,7 +3,21 @@ body {
   color: #fff;
   background: #222;
 }
-
+#search {
+  color: #fff;
+}
+.addNewTrasa {
+  width: 20rem;
+  margin: 10px;
+}
+.trasaItem {
+  color: black;
+}
+.icon {
+  float: right;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
 .index img {
   margin: 40px auto;
   border-radius: 4px;
