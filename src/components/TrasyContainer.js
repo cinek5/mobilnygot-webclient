@@ -4,11 +4,13 @@
 require('isomorphic-fetch');
 import React from 'react';
 import Trasy from './Trasy';
+import {FILTER_TYPES} from './FilterType';
+import FilterTypeSelect from './FilterTypeSelect';
 
 class TrasyContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { trasyPunktowane: [] };
+    this.state = { trasyPunktowane: [], currentFilter: FILTER_TYPES.NONE };
   }
 
   componentDidMount() {
@@ -29,14 +31,27 @@ class TrasyContainer extends React.Component {
         this.setState({ trasyPunktowane: trasy });
       });
   }
+
+  getFilteredTrasy()
+  {
+    if (this.state.currentFilter==FILTER_TYPES.NONE) {
+      return this.state.trasyPunktowane;
+    }
+  }
+  changeFilterType(filterType)
+  {
+    this.setState({...this.state, currentFilter: filterType});
+  }
+
   render() {
     return (
       <div>
-        <div className="input-field">
-          <input placeholder="Szukaj..." id="search" type="text" class="validate"/>
+        <div className="input-field col s10">
+          <input placeholder="Szukaj..." id="search" type="text" className="validate"/>
         </div>
+        <FilterTypeSelect/>
         <div>
-          <Trasy trasy={this.state.trasyPunktowane}/>
+          <Trasy trasy={this.getFilteredTrasy()}/>
         </div>
       </div>
 

@@ -12,11 +12,11 @@ class AppComponent extends React.Component {
       <div className="main">
         <Navbar/>
         <div className="row">
-          <div className="col s6">
+          <div className="col s8">
             <TrasyContainer/>
           </div>
           <div className="col s1"></div>
-          <div className="col s5">
+          <div className="col s3">
             <AddNewTrasaButton/>
           </div>
 

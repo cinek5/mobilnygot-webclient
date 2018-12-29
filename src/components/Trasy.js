@@ -8,32 +8,51 @@ import { MdBuild } from "react-icons/md";
 
 class Trasy extends React.Component {
 
-  getNazwa(trasa) {
-    let nazwa='';
+  getPunkty(trasa) {
+    let punkty='';
     trasa.skladowePunktyTrasy.forEach(function (punkt) {
-       nazwa+=punkt.punktTrasy.nazwaPunktu+' ';
+       punkty+=punkt.punktTrasy.nazwaPunktu+' ';
     })
-    return nazwa;
+    return punkty;
   }
 
   render() {
     return (
-    <ul className="collection">
+    <table className="teal lighten-2">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nazwa</th>
+          <th>Punkty </th>
+          <th>Grupa </th>
+          <th>Pkt. odznaki</th>
+          <th>Data dodania</th>
+          <th>Data usunięcia</th>
+          <th>Id poprzedniej wersji</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
       {this.props.trasy.map(trasa => {
         return (
-          <li className="collection-item trasaItem">
-            <span>Id: {trasa.id}  </span>
-            <span>Nazwa: {this.getNazwa(trasa)}  </span>
-            <span>Grupa: {trasa.grupaGorska.nazwaGrupy}  </span>
-            <span>Pkt: {trasa.liczbaPunktow} </span>
-            <a href="#"><span className="icon"><MdBuild/> Edytuj </span></a>
-            <a href="#"><span className="icon"><MdDelete/> Usuń </span></a>
-
-          </li>
+          <tr>
+            <td>{trasa.id}</td>
+            <td>{trasa.nazwa}</td>
+            <td>{this.getPunkty(trasa)}  </td>
+            <td>{trasa.grupaGorska.nazwaGrupy}  </td>
+            <td>{trasa.liczbaPunktow} </td>
+            <td>{trasa.dataDodania} </td>
+            <td>{trasa.dataUsuniecia} </td>
+            <td>{trasa.poprzedniaWersjaId}</td>
+            <td><a href="#"><span className="icon"><MdBuild/> Edytuj </span></a></td>
+            <td><a href="#"><span className="icon"><MdDelete/> Usuń </span></a></td>
+          </tr>
         )
       })
       }
-    </ul>
+      </tbody>
+    </table>
     );
   }
 }
