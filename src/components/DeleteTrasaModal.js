@@ -1,5 +1,8 @@
 import React from 'react';
-import Modal from 'react-modal';
+import ReactModal from 'react-modal';
+var moment = require('moment');
+
+
 
 const customStyles = {
   content : {
@@ -12,20 +15,31 @@ const customStyles = {
   }
 };
 
-// Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement('#main')
-
 class DeleteTrasaModal extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      modalIsOpen: this.props.isOpen
+      modalIsOpen: false,
+      selectedId: -1
     };
-
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+  }
+  componentDidMount()
+  {
+    this.setState({
+      modalIsOpen: this.props.isModalOpen,
+      selectedId: this.props.selectedId
+    })
+  }
+  componentWillReceiveProps(props) {
+    console.log('new props')
+    this.setState({
+      modalIsOpen: props.isModalOpen,
+      selectedId: props.selectedId
+    })
   }
 
   openModal() {
@@ -35,6 +49,7 @@ class DeleteTrasaModal extends React.Component {
   afterOpenModal() {
     // references are now sync'd and can be accessed.
     this.subtitle.style.color = '#f00';
+    this.message.style.color='#000';
   }
 
   closeModal() {
@@ -44,7 +59,7 @@ class DeleteTrasaModal extends React.Component {
   render() {
     return (
       <div>
-        <Modal
+        <ReactModal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
@@ -52,17 +67,20 @@ class DeleteTrasaModal extends React.Component {
           contentLabel="Example Modal"
         >
 
-          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
+          <h2 ref={subtitle => this.subtitle = subtitle}>Potwierdzenie</h2>
+
+          <p ref={message => this.message = message }>Podaj datę usunięcia trasy</p>
           <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
+            <input type="date" id="dateInput" min={moment().format("YYYY-MM-DD")} />
+            <button onClick={(() => {
+              let dataInput = new Date(document.getElementById("dateInput").value);
+              let dataFormatted = moment(dataInput).format("YYYY-MM-DD");
+              this.props.deleteTrasa(this.state.selectedId, dataFormatted);
+              this.closeModal();
+            }).bind(this)}>Potwierdz</button>
+            <button onClick={this.closeModal}>Anuluj</button>
           </form>
-        </Modal>
+        </ReactModal>
       </div>
     );
   }
