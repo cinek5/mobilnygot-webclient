@@ -64,10 +64,16 @@
     "core-js": "^2.0.0",
     "es6-promise": "^4.2.5",
     "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.23.0",
     "nodemon": "^1.18.9",
     "normalize.css": "^4.0.0",
+    "prop-types": "^15.6.2",
     "react": "^15.0.0",
+    "react-date-picker": "^7.1.1",
+    "react-day-picker": "^7.2.4",
     "react-dom": "^15.0.0",
-    "react-icons": "^3.2.2"
+    "react-icons": "^3.2.2",
+    "react-modal": "^3.8.1",
+    "react-router-dom": "^4.3.1"
   }
 }
