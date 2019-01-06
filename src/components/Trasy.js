@@ -55,13 +55,8 @@ class Trasy extends React.Component {
               <td>{trasa.dataDodania} </td>
               <td>{trasa.dataUsuniecia} </td>
               <td>{trasa.poprzedniaWersjaId}</td>
-<<<<<<< HEAD
               <td><button style={buttonStyle} href="#"><span className="icon"><MdBuild/> Edytuj </span></button></td>
               <td><button style={buttonStyle} hidden={trasa.dataUsuniecia!=undefined} onClick={()=>this.props.onDeleteClick(trasa.id)}><span className="icon"><MdDelete/> Usuń </span></button></td>
-=======
-              <td><a href="#"><span className="icon"><MdBuild/> Edytuj </span></a></td>
-              <td><a href="#" onClick={()=>this.props.onDeleteClick(trasa.id)}><span className="icon"><MdDelete/> Usuń </span></a></td>
->>>>>>> 6e020f4f3c5c78d4c0873991179eafb21b82f704
 
             </tr>
           )
