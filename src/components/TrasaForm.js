@@ -191,7 +191,7 @@ class TrasaForm extends React.Component {
     return (
       <div>
         <h2 style={ {marginLeft: '10%'}}>Dodaj trasę</h2>
-        <AddPunktModal addPunkt={this.addNewPunkt.bind(this)} isModalOpen={this.state.isAddPunktModalOpen}/>
+        <AddPunktModal addPunkt={this.addNewPunkt.bind(this)} onClose={this.closeModal.bind(this)} isModalOpen={this.state.isAddPunktModalOpen}/>
         <div className="row">
           <div className="col s1"></div>
           <form className="col s11">
@@ -201,7 +201,7 @@ class TrasaForm extends React.Component {
                 <input placeholder="Podaj nazwę trasy" required name="nazwa" className="white-text"
                        onChange={this.handleInput.bind(this)} type="text"/>
                 <ListaPunktow changeOrder={this.changePunktOrder.bind(this)} onDeleteClick={this.removeSkladowyPunkt.bind(this)} punkty={this.state.trasa.skladowePunktyTrasy}/>
-                <button style= { {marginTop: '30px'} } type="button" onClick={this.onAddPunktClick.bind(this)} className="btn" >Dodaj nowy punkt trasy</button>
+                <button style= { {marginTop: '30px'} } type="button" onClick={ () => {this.onAddPunktClick.bind(this)();}} className="btn" >Dodaj nowy punkt trasy</button>
               </div>
               <div className="col s4">
                 <label className="white-text">Grupa górska</label>

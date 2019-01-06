@@ -134,7 +134,7 @@ class AddPunktModal extends React.Component {
               }
 
             }).bind(this)}>Potwierdz</button>
-            <button type="button" onClick={this.closeModal}>Anuluj</button>
+            <button type="button" onClick={ () => {this.closeModal(); this.props.onClose(); }}>Anuluj</button>
           </form>
         </ReactModal>
       </div>

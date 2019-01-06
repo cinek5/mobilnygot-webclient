@@ -40,7 +40,7 @@ class ListaPunktow extends React.Component {
                 <td>{punkt.punktTrasy.wysokoscGeograficzna}</td>
                 <td>{punkt.kolejnoscPunktu}</td>
                 <td>
-                  <a href="#" onClick={()=>this.props.onDeleteClick(0)}><span className="icon white-text"><MdDelete/> Usuń </span></a>
+                  <a href="#" onClick={()=>this.props.onDeleteClick(index)}><span className="icon white-text"><MdDelete/> Usuń </span></a>
                   <button style={buttonStyle} onClick={()=>{this.props.changeOrder(index,'up')}} type="button"><span className="icon white-text"><MdExpandLess/></span></button>
                   <button style={buttonStyle} onClick={()=>{this.props.changeOrder(index,'down')}} type="button"><span className="icon white-text"><MdExpandMore/></span></button>
                 </td>
