@@ -75,7 +75,6 @@ class AddPunktModal extends React.Component {
     )
   }
 
-<<<<<<< HEAD
   createPunkt()
   {
     const requestOptions = {
@@ -101,8 +100,6 @@ class AddPunktModal extends React.Component {
 
 
 
-=======
->>>>>>> 6e020f4f3c5c78d4c0873991179eafb21b82f704
   render() {
     return (
       <div>
@@ -117,7 +114,6 @@ class AddPunktModal extends React.Component {
           <h2 ref={subtitle => this.subtitle = subtitle}>Dodaj nowy punkt</h2>
 
           <p ref={message => this.message = message }>Podaj dane punktu</p>
-<<<<<<< HEAD
           <form className="punkt">
             <label>Podaj nazwę punktu</label>
             <input onChange={this.handleInput.bind(this)} required type="text"  name="nazwaPunktu"/>
@@ -137,20 +133,6 @@ class AddPunktModal extends React.Component {
                 form.reportValidity();
               }
 
-=======
-          <form>
-            <label>Podaj nazwę punktu</label>
-            <input onChange={this.handleInput.bind(this)} type="text" name="nazwaPunktu"/>
-            <label>Podaj wyskość npm></label>
-            <input onChange={this.handleInput.bind(this)} type="number" name="wysokosc"/>
-            <label>Podaj wysokość geo</label>
-            <input onChange={this.handleInput.bind(this)} type="number" name="wysokoscGeograficzna"/>
-            <label>Podaj szerokość geo></label>
-            <input onChange={this.handleInput.bind(this)} type="number" name="szerokoscGeograficzna"/>
-            <button  type="button" onClick={(() => {
-              this.props.addPunkt(this.state.punkt);
-              this.closeModal();
->>>>>>> 6e020f4f3c5c78d4c0873991179eafb21b82f704
             }).bind(this)}>Potwierdz</button>
             <button type="button" onClick={this.closeModal}>Anuluj</button>
           </form>
