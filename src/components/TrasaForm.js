@@ -5,11 +5,8 @@ import {MdBuild} from "react-icons/md";
 import GrupaGorskaSelect from './GrupaGorskaSelect';
 import ListaPunktow from './ListaPunktow';
 import AddPunktModal from './AddPunktModal';
-<<<<<<< HEAD
 import { withRouter } from 'react-router'
 
-=======
->>>>>>> 6e020f4f3c5c78d4c0873991179eafb21b82f704
 
 
 class TrasaForm extends React.Component {
@@ -58,7 +55,6 @@ class TrasaForm extends React.Component {
 
     };
   }
-<<<<<<< HEAD
   removeSkladowyPunkt(index)
   {
     let skladowePunkty = this.state.trasa.skladowePunktyTrasy;
@@ -129,8 +125,6 @@ class TrasaForm extends React.Component {
 
 
   }
-=======
->>>>>>> 6e020f4f3c5c78d4c0873991179eafb21b82f704
 
 
   handleInput(e) {
@@ -199,7 +193,6 @@ class TrasaForm extends React.Component {
         <h2 style={ {marginLeft: '10%'}}>Dodaj trasę</h2>
         <AddPunktModal addPunkt={this.addNewPunkt.bind(this)} isModalOpen={this.state.isAddPunktModalOpen}/>
         <div className="row">
-<<<<<<< HEAD
           <div className="col s1"></div>
           <form className="col s11">
             <div className="row">
@@ -208,16 +201,6 @@ class TrasaForm extends React.Component {
                 <input placeholder="Podaj nazwę trasy" required name="nazwa" className="white-text"
                        onChange={this.handleInput.bind(this)} type="text"/>
                 <ListaPunktow changeOrder={this.changePunktOrder.bind(this)} onDeleteClick={this.removeSkladowyPunkt.bind(this)} punkty={this.state.trasa.skladowePunktyTrasy}/>
-=======
-          <div className="col s2"></div>
-          <form className="col s10">
-            <div className="row">
-              <div className="input field col s6 ">
-                <label className="white-text">Nazwa trasy </label>
-                <input placeholder="Podaj nazwę trasy" name="nazwa" className="white-text"
-                       onChange={this.handleInput.bind(this)} type="text"/>
-                <ListaPunktow punkty={this.state.trasa.skladowePunktyTrasy}/>
->>>>>>> 6e020f4f3c5c78d4c0873991179eafb21b82f704
                 <button style= { {marginTop: '30px'} } type="button" onClick={this.onAddPunktClick.bind(this)} className="btn" >Dodaj nowy punkt trasy</button>
               </div>
               <div className="col s4">
@@ -225,24 +208,15 @@ class TrasaForm extends React.Component {
                 <GrupaGorskaSelect handleChange={this.handleJsonInput.bind(this)}/>
 
                 <label className="white-text">Data wprowadzenia trasy</label>
-<<<<<<< HEAD
                 <input required name="dataDodania" className="white-text" onChange={this.handleInput.bind(this)} type="date"/>
 
                 <div className="input field">
                   <label className="white-text">Liczba punktów do zdobycia</label>
                   <input required min="0" name="liczbaPunktow" onChange={this.handleInput.bind(this)} className="white-text"
-=======
-                <input name="dataDodania" className="white-text" onChange={this.handleInput.bind(this)} type="date"/>
-
-                <div className="input field">
-                  <label className="white-text">Liczba punktów do zdobycia</label>
-                  <input name="liczbaPunktow" onChange={this.handleInput.bind(this)} className="white-text"
->>>>>>> 6e020f4f3c5c78d4c0873991179eafb21b82f704
                          type="number"/>
                 </div>
               </div>
             </div>
-<<<<<<< HEAD
             <button style={{marginTop: '50px'}} type="button" onClick={() => {
               let form = document.querySelector('form');
               if (form.checkValidity()) {
@@ -253,9 +227,6 @@ class TrasaForm extends React.Component {
 
              }
             } className="btn">Zatwierdz
-=======
-            <button style={{marginTop: '50px'}} type="button" className="btn">Zatwierdz
->>>>>>> 6e020f4f3c5c78d4c0873991179eafb21b82f704
             </button>
           </form>
 
@@ -265,8 +236,4 @@ class TrasaForm extends React.Component {
   }
 }
 
-<<<<<<< HEAD
 export default withRouter(TrasaForm);
-=======
-export default TrasaForm;
->>>>>>> 6e020f4f3c5c78d4c0873991179eafb21b82f704
