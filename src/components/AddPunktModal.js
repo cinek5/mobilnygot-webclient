@@ -23,11 +23,11 @@ class AddPunktModal extends React.Component {
     this.state = {
       modalIsOpen: false,
       punkt: {
-        id: '',
-        nazwa: '',
+        nazwaPunktu: '',
         wysokosc: '',
         wysokoscGeograficzna: '',
-        szerokoscGeograficzna: ''
+        szerokoscGeograficzna: '',
+        grupaGorska: {}
       }
     };
     this.openModal = this.openModal.bind(this);
@@ -45,7 +45,11 @@ class AddPunktModal extends React.Component {
     console.log('new props')
     this.setState({
       modalIsOpen: props.isModalOpen,
-      selectedId: props.selectedId
+      selectedId: props.selectedId,
+      punkt: {
+        ...this.state.punkt,
+        grupaGorska: this.props.grupa
+      }
     })
   }
 
@@ -89,6 +93,7 @@ class AddPunktModal extends React.Component {
     fetch('http://localhost:8080/punkt', requestOptions).then((response) => {
       if (response.status >= 400) {
         console.log('problem z POSTem punktu');
+        console.log(this.state.punkt);
         throw new Error('Bad response from server');
       }
     }).then(() => {
@@ -127,7 +132,9 @@ class AddPunktModal extends React.Component {
               let form = document.querySelector('form.punkt');
               console.log(form);
               if (form.checkValidity()) {
-                this.createPunkt();
+                //this.createPunkt();
+                this.props.addPunkt(this.state.punkt);
+                this.closeModal();
               } else
               {
                 form.reportValidity();

@@ -51,7 +51,7 @@ class Trasy extends React.Component {
               <td>{trasa.nazwa}</td>
               <td>{this.getPunkty(trasa)}  </td>
               <td>{trasa.grupaGorska.nazwaGrupy}  </td>
-              <td>{trasa.liczbaPunktow} </td>
+              <td>{trasa.punktyRegulaminowe} </td>
               <td>{trasa.dataDodania} </td>
               <td>{trasa.dataUsuniecia} </td>
               <td>{trasa.poprzedniaWersjaId}</td>
