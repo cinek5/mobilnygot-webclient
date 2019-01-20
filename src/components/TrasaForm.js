@@ -227,7 +227,9 @@ class TrasaForm extends React.Component {
                               onDeleteClick={this.removeSkladowyPunkt.bind(this)}
                               punkty={this.state.trasa.skladowePunktyTrasy}/>
                 <button style={ {marginTop: '30px'} } type="button" onClick={ () => {
-                  this.onAddPunktClick.bind(this)();
+                  if (this.state.trasa.grupaGorska.nazwaGrupy!='') {
+                    this.onAddPunktClick.bind(this)();
+                  }
                 }} className="btn">Dodaj nowy punkt trasy
                 </button>
               </div>
