@@ -69,25 +69,6 @@ class TrasaForm extends React.Component {
     })
   }
 
-  setGrupaGorskaToAllPunktyAndCreateTrasa()
-  {
-     let grupa = this.state.trasa.grupaGorska;
-     let skladowePunkty= this.state.trasa.skladowePunktyTrasy;
-     skladowePunkty.forEach(punkt => {
-        let punkTrasy = punkt.punktTrasy;
-        if (punkTrsasy.grupaGorska==undefined) {
-          punkTrasy.grupaGorska=grupa;
-        }
-     });
-    this.setState({
-      ...this.state,
-      trasa: {
-        ...this.state.trasa,
-        skladowePunktyTrasy: skladowePunkty
-      }
-    }, this.createTrasa);
-
-  }
 
   createTrasa() {
     console.log(this.state.trasa);

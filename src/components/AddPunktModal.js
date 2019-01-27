@@ -15,7 +15,6 @@ const customStyles = {
     zIndex: 999
   }
 };
-
 class AddPunktModal extends React.Component {
   constructor() {
     super();

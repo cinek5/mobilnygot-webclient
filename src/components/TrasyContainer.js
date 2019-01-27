@@ -8,6 +8,7 @@ import {FILTER_TYPES} from './FilterType';
 import FilterTypeSelect from './FilterTypeSelect';
 import DeleteTrasaModal from './DeleteTrasaModal';
 
+const baseUrl = 'http://localhost:8080/trasa/punktowana';
 class TrasyContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -16,10 +17,10 @@ class TrasyContainer extends React.Component {
 
   componentDidMount() {
     console.log('chuj');
-    this.fetchTrasy();
+    this.fetchTrasy(baseUrl);
   }
-  fetchTrasy() {
-    fetch('http://localhost:8080/trasa/punktowana')
+  fetchTrasy(url) {
+    fetch(url)
       .then(response => {
         if (response.status >= 400) {
           console.log('problem z wczytywaniem');
@@ -77,11 +78,21 @@ class TrasyContainer extends React.Component {
     })
   }
 
+  fetchByQuery()
+  {
+    var query = document.getElementById('search').value;
+    if (query) {
+      this.fetchTrasy(baseUrl + '/byquery/' + query);
+    } else {
+      this.fetchTrasy(baseUrl);
+    }
+  }
+
   render() {
     return (
       <div>
         <div className="input-field col s10">
-          <input placeholder="Szukaj..." id="search" type="text" className="validate"/>
+          <input onChange={this.fetchByQuery.bind(this)} placeholder="Szukaj..." id="search" type="text" className="validate"/>
         </div>
         <FilterTypeSelect/>
         <div>
